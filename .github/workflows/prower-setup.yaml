@@ -39,4 +39,4 @@ jobs:
         
       - name: Sending files to S3 bucket
         run: |
-          aws s3 cp --recursive ~/output s3://prowler-862023-test-private
+          aws s3 cp --recursive /home/runner/work/prowler/prowler/output s3://prowler-862023-test-private
