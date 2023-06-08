@@ -23,21 +23,13 @@ jobs:
 
       - name: install pip packages
         run: |
-          sudo su
-          sudo apt-get update
-          sudo apt install python3-pip -y
-          sudo pip install prowler
+          apt install python3-pip -y
+          pip install prowler
           ulimit -n 4096
           prowler aws
         continue-on-error: true
         
-      - name: run ls
-        run: |
-          ls
-          pwd
-          ls output
-        
-      - name: Copying
+      - name: Transfering files to s3 bucket
         run: |
           export DATE=$(date +"%d-%m-%y_%H-%M-%S")
           aws s3 cp --recursive /home/runner/work/prowler/prowler/output s3://prowler-862023-test-private/$DATE
