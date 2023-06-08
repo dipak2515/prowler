@@ -37,10 +37,7 @@ jobs:
           pwd
           ls output
         
-      - name: Sending files to S3 bucket
+      - name: Copying
         run: |
-          current_datetime=$(date +"%Y-%m-%d_%H-%M-%S")
-          folder_name="folder_${current_datetime}"
-          source_folder="/home/runner/work/prowler/prowler/output"
-          bucket_name="prowler-862023-test-private"  
-          aws s3 cp /home/runner/work/prowler/prowler/output s3://prowler-862023-test-private/prowler --recursive
+          export DATE=$(date +"%d-%m-%y_%H-%M-%S")
+          aws s3 cp --recursive home/runner/work/prowler/prowler/output s3://prowler-862023-test-private/$DATE
