@@ -34,11 +34,11 @@ jobs:
 
       - name: install pip packages
         run: |
-          apt install python3-pip -y
+          sudo apt install python3-pip -y
 
       - name : install prowler
         run: |
-          pip3 install prowler -y
+          sudo pip3 install prowler -y
 
       - name: run prowler
         run: |
