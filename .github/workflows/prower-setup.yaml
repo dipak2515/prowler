@@ -38,7 +38,7 @@ jobs:
 
       - name : install prowler
         run: |
-          sudo pip3 install prowler -y
+          sudo pip install prowler -y
 
       - name: run prowler
         run: |
