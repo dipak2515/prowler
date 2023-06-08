@@ -29,8 +29,11 @@ jobs:
           sudo pip install prowler
           ulimit -n 4096
           prowler aws
-          ls
         continue-on-error: true
+        
+      - name: run ls
+        run: |
+          ls
         
       - name: Sending files to S3 bucket
         run: |
