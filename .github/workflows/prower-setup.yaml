@@ -44,3 +44,9 @@ jobs:
           source_folder="/home/runner/work/prowler/prowler/output"
           bucket_name="prowler-862023-test-private"
           aws s3 cp ${/home/runner/work/prowler/prowler/output} s3://${prowler-862023-test-private}/${prowler} --recursive
+          
+          current_datetime=$(date +"%Y-%m-%d_%H-%M-%S")
+          folder_name="folder_${current_datetime}"
+          source_folder="/home/runner/work/prowler/prowler/output"
+          bucket_name="prowler-862023-test-private"  
+          aws s3 cp ${/home/runner/work/prowler/prowler/output} s3://${prowler-862023-test-private}/${folder_name} --recursive
