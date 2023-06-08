@@ -23,8 +23,10 @@ jobs:
 
       - name: install pip packages
         run: |
-          apt install python3-pip -y
-          pip install prowler
+          sudo su
+          sudo apt-get update
+          sudo apt install python3-pip -y
+          sudo pip install prowler
           ulimit -n 4096
           prowler aws
         continue-on-error: true
