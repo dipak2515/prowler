@@ -19,7 +19,7 @@ jobs:
 
       - name: update ubuntu packages
         run: |
-          apt-get update
+          sudo apt-get update
 
       - name: install aws cli
         run: |
