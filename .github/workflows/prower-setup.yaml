@@ -40,4 +40,4 @@ jobs:
       - name: Copying
         run: |
           export DATE=$(date +"%d-%m-%y_%H-%M-%S")
-          aws s3 cp --recursive home/runner/work/prowler/prowler/output s3://prowler-862023-test-private/$DATE
+          aws s3 cp --recursive /home/runner/work/prowler/prowler/output s3://prowler-862023-test-private/$DATE
