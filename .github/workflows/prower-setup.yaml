@@ -47,6 +47,7 @@ jobs:
       - name: run prowler
         run: |
           prowler aws
+        continue-on-error: true
 
       - name: send reports to s3 bucket
         run: |
