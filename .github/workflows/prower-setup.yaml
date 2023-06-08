@@ -1,8 +1,10 @@
 name: Install Prowler
 
 on:
-  workflow_dispatch: 
-      
+  push:
+    branches:
+      - main
+
 jobs:
   install prowler:
     runs-on: ubuntu-latest
@@ -46,4 +48,4 @@ jobs:
 
       - name: send reports to s3 bucket
         run: |
-          aws s3 cp /output/** s3://prowler-862023-test-private 
+          aws s3 cp /output/** s3://prowler-862023-test-private
