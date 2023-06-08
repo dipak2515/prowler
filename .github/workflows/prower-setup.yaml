@@ -13,18 +13,6 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
 
-      - name: get sudo permission
-        run: |
-          sudo su
-
-      - name: update ubuntu packages
-        run: |
-          sudo apt-get update
-
-      - name: install aws cli
-        run: |
-          sudo apt install awscli -y
-
       - name: aws configure
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -34,21 +22,14 @@ jobs:
 
       - name: install pip packages
         run: |
-          sudo apt install python3-pip -y
-
-      - name : install prowler
-        run: |
-          sudo pip install prowler
-          
-      - name: extend the runout timer
-        run: |
-          ulimit -n 4096
-
-      - name: run prowler
-        run: |
-          prowler aws
-        continue-on-error: true
-
-      - name: send reports to s3 bucket
-        run: |
-          aws s3 cp --recursive /home/ubuntu/output s3://prowler-862023-test-private
+			    sudo su
+			    sudo apt-get update
+			    sudo apt install python3-pip -y
+			    sudo pip install prowler
+			    ulimit -n 4096
+		     	prowler aws
+		    continue-on-error: true
+		
+	    - name: Sending files to S3 bucket
+	      run: |
+			    aws s3 cp --recursive /home/ubuntu/output s3://prowler-862023-test-private
