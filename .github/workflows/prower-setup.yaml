@@ -1,4 +1,4 @@
-name: Install Prowler
+name: Prowler Setup
 
 on:
   push:
