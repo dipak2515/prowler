@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  install prowler:
+  install_prowler:
     runs-on: ubuntu-latest
 
     steps:
