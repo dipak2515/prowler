@@ -19,7 +19,7 @@ jobs:
 
 
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: arn:aws:iam::924144197303:role/github-oidc-role-prowler
           role-session-name: samplerolesession
